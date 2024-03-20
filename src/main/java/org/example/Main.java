@@ -1,10 +1,16 @@
 package org.example;
 
-import java.util.Comparator;
-
+/**
+ * Главный класс приложения, демонстрирующий использование функций MyArrayList и QuickSort.
+ */
 public class Main {
-    public static void main(String[] args) {
 
+    /**
+     * Точка входа в приложение.
+     *
+     * @param args аргументы командной строки (не используются)
+     */
+    public static void main(String[] args) {
         MyArrayList<Integer> numbers = new MyArrayList<>();
 
         numbers.add(1);
@@ -22,10 +28,9 @@ public class Main {
         System.out.println("Размер списка: " + numbers.size());
         System.out.println("Длина списка: " + numbers.length());
 
-        System.out.println("Исходный массив " + numbers);
+        System.out.println("Iсходный массив " + numbers);
         QuickSort.sort(numbers);
         System.out.println("Отсортированный массив " + numbers);
-
 
         numbers.remove(0);
         System.out.println("Размер списка после удаления: " + numbers.size());
@@ -39,7 +44,5 @@ public class Main {
         numbers.clear();
         System.out.println("Размер списка после очистки: " + numbers.size());
         System.out.println("Длина списка после очистки: " + numbers.length());
-
-
     }
 }

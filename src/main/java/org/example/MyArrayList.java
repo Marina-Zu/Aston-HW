@@ -3,14 +3,13 @@ package org.example;
 import java.util.Arrays;
 
 /**
+ * @param <T> тип элементов в списке
+ * @author Marina Zu
  * Класс MyArrayList представляет собой список, реализованный в виде массива.
  * Он предоставляет методы для добавления, удаления, получения и замены элементов в списке,
  * а также для сортировки и очистки списка.
  * <p>
  * Этот класс не является потокобезопасным.
- *
- * @param <T> тип элементов в списке
- * @author Зудкина Марина
  */
 public class MyArrayList<T> implements List<T> {
     /**
@@ -60,7 +59,7 @@ public class MyArrayList<T> implements List<T> {
      * Добавление элемента по индексу
      *
      * @param element значение элемента
-     * @param index индекс места вставки элемента
+     * @param index   индекс места вставки элемента
      */
     public void add(int index, T element) {
         checkIndex(index);
@@ -102,7 +101,7 @@ public class MyArrayList<T> implements List<T> {
      * Замена элемента по индексу
      *
      * @param element значение элемента
-     * @param index индекс места замены элемента
+     * @param index   индекс места замены элемента
      */
     public void set(int index, T element) {
         checkIndex(index);
