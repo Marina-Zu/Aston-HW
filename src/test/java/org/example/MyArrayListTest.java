@@ -5,9 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Класс MyArrayListTest представляет собой класс для тестирования класса MyArrayList
+ * <p>
+ *
+ * @author Зудкина Марина
+ */
 class MyArrayListTest {
     private MyArrayList<Integer> arrayList;
 
+    /**
+     * Создаем и заполняем список
+     */
     @BeforeEach
     public void setUp() {
         arrayList = new MyArrayList<>();
@@ -16,12 +25,18 @@ class MyArrayListTest {
         arrayList.add(10);
     }
 
+    /**
+     * Проверяем, что метод создается список заданной длины
+     */
     @Test
     void testMyArrayListSuccessful() {
         MyArrayList<String> list = new MyArrayList<>(5);
-        assertTrue(list.length() == 5);
+        assertEquals(5, list.length());
     }
 
+    /**
+     * Проверяем, что метод создается список заданной длины
+     */
     @Test
     void testMyArrayListFailure() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new MyArrayList<>(0));
@@ -30,8 +45,12 @@ class MyArrayListTest {
 
     @Test
     void testAddSuccessful() {
-        arrayList.add(20);
-        assertEquals(20, arrayList.get(3));
+        MyArrayList<Integer> list = new MyArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+            assertEquals(i + 1, list.size());
+            assertEquals(i, list.get(i));
+        }
     }
 
     @Test
@@ -42,7 +61,7 @@ class MyArrayListTest {
     }
 
     @Test
-    void testAddWithExpansionCapacity(){
+    void testAddWithExpansionCapacity() {
         int originalLength = arrayList.length();
         for (int i = 0; i < 7; i++) {
             arrayList.add(i);
@@ -56,6 +75,9 @@ class MyArrayListTest {
         assertEquals("Invalid index -1", exception.getMessage());
     }
 
+    /**
+     * Проверяем, что метод get возвращает ожидаемое значение
+     */
     @Test
     void testGetSuccessful() {
         assertEquals(10, arrayList.get(2));
@@ -72,22 +94,22 @@ class MyArrayListTest {
     void testSetSuccessful() {
         arrayList.set(0, 20);
         assertEquals(20, arrayList.get(0));
-        assertEquals(null, arrayList.get(3));
+        assertNull(arrayList.get(3));
     }
 
     @Test
     void testClearSuccessful() {
         arrayList.clear();
-        assertTrue(arrayList.size() == 0);
+        assertEquals(0, arrayList.size());
     }
 
     @Test
     void testSizeSuccessful() {
-        assertTrue(arrayList.size() == 3);
+        assertEquals(3, arrayList.size());
     }
 
     @Test
     void testLengthSuccessful() {
-        assertTrue(arrayList.length() == 10);
+        assertEquals(10, arrayList.length());
     }
 }

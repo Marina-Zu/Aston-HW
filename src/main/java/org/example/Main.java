@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println("Исходный массив " + numbers);
         QuickSort.sort(numbers);
-        System.out.println("Массив после сортировки " + numbers);
+        System.out.println("Отсортированный массив " + numbers);
 
 
         numbers.remove(0);

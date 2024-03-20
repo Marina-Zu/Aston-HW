@@ -7,6 +7,12 @@ import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Класс QuickSortTest представляет собой класс для тестирования класса QuickSort
+ * <p>
+ *
+ * @author Зудкина Марина
+ */
 class QuickSortTest {
     private MyArrayList<Integer> arrayList;
 
