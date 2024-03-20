@@ -41,7 +41,7 @@ public class MyArrayList<T> implements List<T> {
 
     public void remove(int index) {
         checkIndex(index);
-        for (int i = 1; i < size; i++) {
+        for (int i = index; i < size; i++) {
             array[i] = array[i + 1];
         }
         size--;
@@ -85,6 +85,6 @@ public class MyArrayList<T> implements List<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return Arrays.toString(Arrays.copyOf(array, size));
     }
 }

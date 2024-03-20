@@ -7,11 +7,11 @@ public class QuickSort<T> {
         sort(arrayList, null);
     }
 
-    public static <T>  void sort(MyArrayList<T> arrayList, Comparator<T> comparator) {
+    public static <T> void sort(MyArrayList<T> arrayList, Comparator<T> comparator) {
         quickSort(arrayList, 0, arrayList.size() - 1, comparator);
     }
 
-    private static <T>  void quickSort(MyArrayList<T> arrayList, int low, int high, Comparator<T> comparator) {
+    private static <T> void quickSort(MyArrayList<T> arrayList, int low, int high, Comparator<T> comparator) {
         if (low < high) {
             int pivotIndex = partition(arrayList, low, high, comparator);
             quickSort(arrayList, low, pivotIndex - 1, comparator);
@@ -19,11 +19,12 @@ public class QuickSort<T> {
         }
     }
 
-    private static <T>  int partition(MyArrayList<T> arrayList, int low, int high, Comparator<T> comparator) {
+    private static <T> int partition(MyArrayList<T> arrayList, int low, int high, Comparator<T> comparator) {
         T pivot = arrayList.get(high);
         int i = low - 1;
         for (int j = low; j < high; j++) {
-            if (comparator.compare(arrayList.get(j), pivot) < 0) {
+            if  ((comparator == null && ((Comparable<T>) arrayList.get(j)).compareTo(pivot) < 0) ||
+                    (comparator != null && comparator.compare(arrayList.get(j), pivot) < 0)) {
                 i++;
                 swap(arrayList, i, j);
             }
@@ -32,7 +33,7 @@ public class QuickSort<T> {
         return i + 1;
     }
 
-    private static <T>  void swap(MyArrayList<T> arrayList, int i, int j) {
+    private static <T> void swap(MyArrayList<T> arrayList, int i, int j) {
         T temp = arrayList.get(i);
         arrayList.set(i, arrayList.get(j));
         arrayList.set(j, temp);

@@ -23,12 +23,13 @@ public class Main {
         System.out.println("Длина списка: " + numbers.length());
 
         System.out.println("Исходный массив " + numbers);
-        QuickSort.sort(numbers, Comparator.naturalOrder());
+        QuickSort.sort(numbers);
         System.out.println("Массив после сортировки " + numbers);
 
 
         numbers.remove(0);
         System.out.println("Размер списка после удаления: " + numbers.size());
+        System.out.println("Список после удаления " + numbers);
         System.out.println("Длина списка после удаления: " + numbers.length());
 
         numbers.remove(0);
