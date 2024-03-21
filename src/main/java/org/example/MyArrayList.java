@@ -134,7 +134,7 @@ public class MyArrayList<T> implements List<T> {
 
     private void checkIndex(int index) {
         if (index > size || index < 0)
-            throw new IllegalArgumentException("Invalid index " + index);
+            throw new IndexOutOfBoundsException("Invalid index " + index);
     }
 
     private void expansionCapacity() {
